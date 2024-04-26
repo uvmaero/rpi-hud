@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
@@ -28,6 +29,8 @@ public:
     QProgressBar *batteryIndicatorProgBar;
     QLCDNumber *speedLCD;
     QLabel *batteryIndicatorTbx;
+    QLineEdit *driveModeLineEdit;
+    QLabel *driveModeTbx;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -47,9 +50,19 @@ public:
         speedLCD = new QLCDNumber(centralwidget);
         speedLCD->setObjectName("speedLCD");
         speedLCD->setGeometry(QRect(160, 0, 311, 121));
+        speedLCD->setLayoutDirection(Qt::LeftToRight);
+        speedLCD->setSmallDecimalPoint(false);
+        speedLCD->setSegmentStyle(QLCDNumber::Flat);
         batteryIndicatorTbx = new QLabel(centralwidget);
         batteryIndicatorTbx->setObjectName("batteryIndicatorTbx");
-        batteryIndicatorTbx->setGeometry(QRect(10, 200, 66, 18));
+        batteryIndicatorTbx->setGeometry(QRect(10, 200, 81, 18));
+        driveModeLineEdit = new QLineEdit(centralwidget);
+        driveModeLineEdit->setObjectName("driveModeLineEdit");
+        driveModeLineEdit->setGeometry(QRect(290, 180, 181, 31));
+        driveModeLineEdit->setReadOnly(true);
+        driveModeTbx = new QLabel(centralwidget);
+        driveModeTbx->setObjectName("driveModeTbx");
+        driveModeTbx->setGeometry(QRect(290, 160, 91, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -67,7 +80,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        batteryIndicatorTbx->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        batteryIndicatorTbx->setText(QCoreApplication::translate("MainWindow", "Battery %:", nullptr));
+        driveModeTbx->setText(QCoreApplication::translate("MainWindow", "Drive Mode:", nullptr));
     } // retranslateUi
 
 };

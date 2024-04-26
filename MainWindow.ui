@@ -48,18 +48,53 @@
       <height>121</height>
      </rect>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="batteryIndicatorTbx">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>200</y>
-      <width>66</width>
+      <width>81</width>
       <height>18</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Battery %:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="driveModeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>180</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="driveModeTbx">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>160</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Drive Mode:</string>
     </property>
    </widget>
   </widget>
